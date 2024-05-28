@@ -1,8 +1,7 @@
 const{Router} = require("express")
 const router = Router()
 
-app.get("/add",(req,res)=> {
-    // res.sendFile(path.join(__dirname, "views","about.html"))
+router.get("/add",(req,res)=> {
     res.render("add",{
         title: "Add a course",
         isAdd: true
@@ -11,7 +10,6 @@ app.get("/add",(req,res)=> {
 
 router.post("/", (req,res)=>{
     console.log(req.body)
-
     res.redirect("/courses")
 })
 module.exports= router

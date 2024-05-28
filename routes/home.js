@@ -1,8 +1,7 @@
 const{Router} = require("express")
 const router = Router()
 
-app.get("/",(req,res)=> {
-    // res.sendFile(path.join(__dirname,"views","index.html"))
+router.get("/",(req,res)=> {
     res.render("index",{
         title:"Main page",
         isHome:true
