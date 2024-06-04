@@ -1,10 +1,10 @@
-<h1>Add a new course</h1>
+<h1>Edit the {{course.title}}</h1>
 
 <div class="row">
-    <form class="col s12" action="/add" method="POST">
+    <form class="col s12" action="/courses/edit" method="POST">
         <div class="row">
             <div class="input-field col s6">
-                <input id="title" name="title" type="text" class="validate" required="">
+                <input id="title" name="title" type="text" class="validate" required="" value="{{course.title}}">
                 <label for="title">Course name</label>
                 <span class="helper-text" data-error="enter a title"></span>
             </div>
@@ -12,7 +12,7 @@
 
         <div class="row">
             <div class="input-field col s6">
-                <input id="price" name="price" type="number" class="validate" required="" min="1">
+                <input id="price" name="price" type="number" class="validate" required="" min="1" value="{{course.price}}">
                 <label for="price">Course price</label>
                 <span class="helper-text" data-error="enter a price"></span>
             </div>
@@ -20,12 +20,14 @@
 
         <div class="row">
             <div class="input-field col s6">
-                <input id="img" name="img" type="text" class="validate" required="">
+                <input id="img" name="img" type="text" class="validate" required="" value="{{course.img}}">
                 <label for="img">Image URL</label>
                 <span class="helper-text" data-error="enter a image URL"></span>
             </div>
         </div>
 
-        <button class="btn btn-primary">Add the course</button>
+        <input type="hidden" name="id" value="{{course.id}}">
+
+        <button class="btn btn-primary">Edit the course</button>
     </form>
 </div>
