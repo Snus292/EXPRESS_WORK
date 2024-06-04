@@ -1,7 +1,6 @@
 const express = require("express")
 const path = require("path")
 const exphbs = require("express-handlebars")
-const { title } = require("process")
 const homeRoutes = require("./routes/home")
 const addRoutes = require("./routes/add")
 const coursesRoutes = require("./routes/courses")

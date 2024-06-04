@@ -1,7 +1,7 @@
 <h1>Add a new course</h1>
 
 <div class="row">
-    <form class="col s12">
+    <form class="col s12" action="/add" method="POST">
         <div class="row">
             <div class="input-field col s6">
                 <input id="title" name="title" type="text" class="validate" required="">
@@ -12,7 +12,7 @@
 
         <div class="row">
             <div class="input-field col s6">
-                <input id="price" name="price" type="number" class="validate" required="" min="">
+                <input id="price" name="price" type="number" class="validate" required="" min="1">
                 <label for="price">Course price</label>
                 <span class="helper-text" data-error="enter a price"></span>
             </div>
@@ -20,7 +20,7 @@
 
         <div class="row">
             <div class="input-field col s6">
-                <input id="img" name="img" type="text" class="validate" required=">
+                <input id="img" name="img" type="text" class="validate" required="">
                 <label for="img">Image URL</label>
                 <span class="helper-text" data-error="enter a image URL"></span>
             </div>
