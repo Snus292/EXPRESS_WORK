@@ -1,6 +1,7 @@
 const path = require("path")
 const fs = require("fs")
 const { rejects } = require("assert")
+const { count } = require("console")
 const p = path.json(
     path.dirname(process.main.filename),
     "data",
@@ -35,6 +36,30 @@ class Card {
             })
         })
 
+    }
+    static async remove(id){
+        const card = await Card.fetch()
+        const idx = card.courses.findIndex(c => c.id === id)
+        const course = card.courses[idx]
+
+        if(course.count ===1){
+            //delite
+            card.courses = card.courses.filter(c => c.id !==id)
+        }else{
+            //change the quantity
+            card.courses[idx].count--
+        }
+        card.price -= course.price
+
+        return new Promise((resolve,reject)=>{
+            fs.writeFile(p,JSON.stringify(card),err =>{
+                if(err){
+                    reject(err)
+                }else{
+                    resolve(card)
+                }
+            })
+        })
     }
     static async fetch(){
         return new Promise((resolve, reject) => {
