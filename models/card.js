@@ -2,8 +2,8 @@ const path = require("path")
 const fs = require("fs")
 const { rejects } = require("assert")
 const { count } = require("console")
-const p = path.json(
-    path.dirname(process.main.filename),
+const p = path.join(
+    path.dirname(process.mainModule.filename),
     "data",
     "card.json"
 )
@@ -43,7 +43,7 @@ class Card {
         const course = card.courses[idx]
 
         if(course.count ===1){
-            //delite
+            //delete
             card.courses = card.courses.filter(c => c.id !==id)
         }else{
             //change the quantity
